@@ -1,0 +1,9 @@
+-- 코드를 입력하세요
+SELECT a.ANIMAL_ID, a.NAME
+FROM (
+    SELECT i.ANIMAL_ID, i.NAME, o.DATETIME - i.DATETIME AS '보호기간'
+    FROM ANIMAL_INS i
+    JOIN ANIMAL_OUTS o ON i.ANIMAL_ID = o.ANIMAL_ID
+    ORDER BY 보호기간 DESC
+) a
+LIMIT 2;
